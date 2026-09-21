@@ -331,31 +331,6 @@ This endpoint is useful for building Surah selection screens in applications.
 
 ---
 
-# Using the API from Swift
-
-The API can be consumed directly from an iOS application using Swift's `URLSession`.
-
-For example:
-
-```swift
-let url = URL(
-    string: "http://127.0.0.1:8000/quran/2/255"
-)!
-
-let (data, response) = try await URLSession.shared.data(
-    from: url
-)
-
-let verse = try JSONDecoder().decode(
-    Verse.self,
-    from: data
-)
-```
-
-A production application should generally place this networking code behind an API client/service layer rather than making requests directly from SwiftUI views.
-
----
-
 # CORS
 
 The API currently enables CORS:
